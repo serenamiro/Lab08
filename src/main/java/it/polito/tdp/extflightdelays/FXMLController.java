@@ -35,7 +35,16 @@ public class FXMLController {
 
     @FXML
     void doAnalizzaAeroporti(ActionEvent event) {
-    	//TODO
+    	String distMedia = distanzaMinima.getText();
+    	try {
+    		int distanzaMedia = Integer.parseInt(distMedia);
+    		model.creaGrafo(distanzaMedia);
+    		txtResult.appendText("Grafo creato con "+model.nVertici()+" vertici e "+model.nArchi()+" nodi\n");
+    		txtResult.appendText("PARTENZA - ARRIVO - DISTANZA\n");
+    		txtResult.appendText(model.stampaRisultati());
+    	} catch(NumberFormatException e) {
+    		txtResult.appendText("Inserire un numero valido.");
+    	}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
