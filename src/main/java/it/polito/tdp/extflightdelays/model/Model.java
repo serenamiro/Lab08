@@ -32,9 +32,11 @@ public class Model {
 		Graphs.addAllVertices(this.grafo, idMap.values());
 		
 		gen = dao.getResults(idMap, distMediaMinima);
+		
 		for (Generale g : gen) {
-			Graphs.addEdge(this.grafo, g.getAp(), g.getAa(), g.getAvgDist());
-		}
+				Graphs.addEdge(this.grafo, g.getAp(), g.getAa(), g.getAvgDist());
+			}
+		
 	}
 	
 	public int nVertici() {

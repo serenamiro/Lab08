@@ -114,8 +114,15 @@ public class ExtFlightDelaysDAO {
 				Airport ap = idMap.get(rs.getInt(1));
 				Airport aa = idMap.get(rs.getInt(2));
 				Generale g = new Generale(ap, aa, rs.getInt("MEDIA"));
-				result.add(g);
 				
+				boolean check = false;
+				for(Generale gg : result) {
+					if(g.getAp().getId()==gg.getAa().getId() && g.getAa().getId()==gg.getAa().getId()) {
+						check = true;
+					}
+				}
+				if(check == false)
+					result.add(g);
 			}
 			
 			conn.close();

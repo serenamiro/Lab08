@@ -39,7 +39,7 @@ public class FXMLController {
     	try {
     		int distanzaMedia = Integer.parseInt(distMedia);
     		model.creaGrafo(distanzaMedia);
-    		txtResult.appendText("Grafo creato con "+model.nVertici()+" vertici e "+model.nArchi()+" nodi\n");
+    		txtResult.appendText("Grafo creato con "+model.nVertici()+" vertici e "+model.nArchi()+" archi\n");
     		txtResult.appendText("PARTENZA - ARRIVO - DISTANZA\n");
     		txtResult.appendText(model.stampaRisultati());
     	} catch(NumberFormatException e) {
