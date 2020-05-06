@@ -115,14 +115,16 @@ public class ExtFlightDelaysDAO {
 				Airport aa = idMap.get(rs.getInt(2));
 				Generale g = new Generale(ap, aa, rs.getInt("MEDIA"));
 				
+				// questo tipo di controllo si potrebbe fare anche nel model, prima di inserire un arco
 				boolean check = false;
 				for(Generale gg : result) {
-					if(g.getAp().getId()==gg.getAa().getId() && g.getAa().getId()==gg.getAa().getId()) {
+					if(g.getAp().getId()==gg.getAa().getId() && g.getAa().getId()==gg.getAp().getId()) {
 						check = true;
 					}
 				}
 				if(check == false)
 					result.add(g);
+					
 			}
 			
 			conn.close();
